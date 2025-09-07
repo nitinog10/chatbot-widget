@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Widget Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .demo-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        
+        .demo-section h2 {
+            margin-top: 0;
+            color: #ffd700;
+        }
+        
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            display: block;
+            margin: 10px 0;
+            color: #00ff88;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+            font-weight: bold;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .notice {
+            background: rgba(255, 193, 7, 0.2);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Chatbot Widget Demo</h1>
+        
+        <div class="demo-section">
+            <h2>Features</h2>
+            <ul class="feature-list">
+                <li>Floating chat button in bottom-right corner</li>
+                <li>Smooth animations and transitions</li>
+                <li>Responsive design for mobile and desktop</li>
+                <li>Message history with scrollable interface</li>
+                <li>Typing indicators</li>
+                <li>Clean, modern styling</li>
+                <li>Support for multiple agent personalities</li>
+                <li>One-line integration</li>
+            </ul>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Basic Integration</h2>
+            <p>Add this single line to your HTML to embed the chatbot:</p>
+            <code>&lt;script src="https://mydomain.com/chatbot-widget.js" async&gt;&lt;/script&gt;</code>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Advanced Usage</h2>
+            <p>For different chatbot personalities, use the custom element:</p>
+            <code>&lt;my-chatbot agent-id="career_bot"&gt;&lt;/my-chatbot&gt;
+&lt;script src="https://mydomain.com/chatbot-widget.js" async&gt;&lt;/script&gt;</code>
+        </div>
+        
+        <div class="demo-section">
+            <h2>API Integration</h2>
+            <p>Your backend should handle POST requests to <code>/chat</code> endpoint:</p>
+            <code>// Request format
+{
+  "message": "user message text",
+  "agent_id": "optional_agent_id"  // only if using custom element
+}
+
+// Response format
+{
+  "response": "chatbot response text"
+}</code>
+        </div>
+        
+        <div class="notice">
+            <strong>Note:</strong> This demo uses a mock API that simulates responses. In production, 
+            update the <code>apiEndpoint</code> in the widget configuration to point to your actual chatbot API.
+        </div>
+        
+        <div class="instructions">
+            <h3>Try it now!</h3>
+            <p>Look for the chat button in the bottom-right corner and click it to test the widget.</p>
+        </div>
+    </div>
+
+    <!-- Example 1: Basic widget (auto-initialized) -->
+    <!-- <script src="src/chatbot-widget.js" async></script> -->
+    
+    <!-- Example 2: Custom agent -->
+    <my-chatbot agent-id="demo_bot"></my-chatbot>
+    <script>
+        // Mock API for demo purposes - replace this with your actual endpoint
+        (function() {
+            const originalFetch = window.fetch;
+            window.fetch = function(url, options) {
+                // Intercept calls to our demo API
+                if (url.includes('/chat')) {
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            const mockResponses = [
+                                "Hello! I'm a demo chatbot. How can I help you today?",
+                                "That's an interesting question! I'm just a demo, but I'd love to help.",
+                                "I'm a mock response for demonstration purposes. In production, I'd be connected to a real AI!",
+                                "Thanks for trying out the chatbot widget! This response is just for demo.",
+                                "This widget supports message history, typing indicators, and mobile responsiveness!",
+                                "You can customize my appearance and behavior through the configuration options.",
+                                "Feel free to test all the features - sending messages, scrolling, and mobile view!"
+                            ];
+                            
+                            const randomResponse = mockResponses[Math.floor(Math.random() * mockResponses.length)];
+                            
+                            resolve({
+                                ok: true,
+                                json: () => Promise.resolve({
+                                    response: randomResponse
+                                })
+                            });
+                        }, 1000 + Math.random() * 1500); // Random delay 1-2.5 seconds
+                    });
+                }
+                // For other requests, use the original fetch
+                return originalFetch.apply(this, arguments);
+            };
+        })();
+    </script>
+    <script src="src/chatbot-widget.js" async></script>
+</body>
+</html>
