@@ -1,3 +1,4 @@
+```
 (function() {
     'use strict';
 
@@ -14,7 +15,7 @@
 
     // CSS Styles
     const CSS_STYLES = `
-        .chatbot-widget {
+       .chatbot-widget {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             position: fixed;
             z-index: 10000;
@@ -43,11 +44,11 @@
             box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
         }
 
-        .chatbot-button.open {
+       .chatbot-button.open {
             background: #ff4757;
         }
 
-        .chatbot-window {
+       .chatbot-window {
             position: absolute;
             bottom: 80px;
             right: 0;
@@ -64,13 +65,13 @@
             transition: all 0.3s ease;
         }
 
-        .chatbot-window.open {
+       .chatbot-window.open {
             opacity: 1;
             visibility: visible;
             transform: translateY(0) scale(1);
         }
 
-        .chatbot-header {
+       .chatbot-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 16px;
@@ -79,7 +80,7 @@
             font-size: 16px;
         }
 
-        .chatbot-messages {
+       .chatbot-messages {
             flex: 1;
             overflow-y: auto;
             padding: 16px;
@@ -88,21 +89,21 @@
             gap: 12px;
         }
 
-        .chatbot-messages::-webkit-scrollbar {
+       .chatbot-messages::-webkit-scrollbar {
             width: 6px;
         }
 
-        .chatbot-messages::-webkit-scrollbar-track {
+       .chatbot-messages::-webkit-scrollbar-track {
             background: #f1f1f1;
             border-radius: 3px;
         }
 
-        .chatbot-messages::-webkit-scrollbar-thumb {
+       .chatbot-messages::-webkit-scrollbar-thumb {
             background: #c1c1c1;
             border-radius: 3px;
         }
 
-        .chatbot-message {
+       .chatbot-message {
             max-width: 80%;
             padding: 10px 14px;
             border-radius: 18px;
@@ -118,14 +119,14 @@
             border-bottom-right-radius: 4px;
         }
 
-        .chatbot-message.bot {
+       .chatbot-message.bot {
             align-self: flex-start;
             background: #f1f3f4;
             color: #333;
             border-bottom-left-radius: 4px;
         }
 
-        .chatbot-input-area {
+       .chatbot-input-area {
             padding: 16px;
             border-top: 1px solid #e0e0e0;
             display: flex;
@@ -133,7 +134,7 @@
             align-items: flex-end;
         }
 
-        .chatbot-input {
+       .chatbot-input {
             flex: 1;
             border: 1px solid #e0e0e0;
             border-radius: 20px;
@@ -146,12 +147,12 @@
             font-family: inherit;
         }
 
-        .chatbot-input:focus {
+       .chatbot-input:focus {
             border-color: #667eea;
             box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
         }
 
-        .chatbot-send-button {
+       .chatbot-send-button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
             border-radius: 50%;
@@ -166,17 +167,17 @@
             transition: all 0.2s ease;
         }
 
-        .chatbot-send-button:hover {
+       .chatbot-send-button:hover {
             transform: scale(1.1);
         }
 
-        .chatbot-send-button:disabled {
+       .chatbot-send-button:disabled {
             background: #ccc;
             cursor: not-allowed;
             transform: none;
         }
 
-        .chatbot-typing {
+       .chatbot-typing {
             align-self: flex-start;
             background: #f1f3f4;
             color: #666;
@@ -184,7 +185,7 @@
             border-bottom-left-radius: 4px;
         }
 
-        .chatbot-typing::after {
+       .chatbot-typing::after {
             content: '';
             display: inline-block;
             width: 8px;
@@ -206,7 +207,7 @@
                 bottom: 10px;
             }
             
-            .chatbot-window {
+           .chatbot-window {
                 width: calc(100vw - 20px);
                 right: -10px;
                 bottom: 80px;
@@ -445,3 +446,4 @@
     }
 
 })();
+```
