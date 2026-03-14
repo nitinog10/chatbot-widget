@@ -368,3 +368,12 @@ Inline CSS styles for the chatbot widget. Includes styles for the widget button,
 - Only the last `CONFIG.maxMessages` are kept in the chat history.
 - Errors during API calls result in a fallback message being displayed.
 
+## Code Improvements Applied
+
+- Add regression tests around the highest-risk files: `build.js`, `src/chatbot-widget.js`.
+- Consider extracting shared utility code into a dedicated module to lower coupling.
+- Re-index and regenerate walkthroughs/diagrams after structural changes to keep documentation current.
+
+Files changed:
+- `build.js`
+- `src/chatbot-widget.js`
