@@ -1,27 +1,14 @@
+```
 const fs = require('fs');
 const path = require('path');
-
-// Simple minification function (removes comments and excess whitespace)
-function minifyJS(code) {
-    return code
-        // Remove single-line comments
-        .replace(/\/\/.*$/gm, '')
-        // Remove multi-line comments
-        .replace(/\/\*[\s\S]*?\*\//g, '')
-        // Remove excess whitespace
-        .replace(/\s+/g, ' ')
-        // Remove spaces around operators and brackets
-        .replace(/\s*([{}();,:])\s*/g, '$1')
-        // Remove leading/trailing whitespace
-        .trim();
-}
+const { minifyJS } = require('./utils');
 
 // Build function
 function build() {
     console.log('🔨 Building chatbot widget...');
     
     // Read source file
-    const srcPath = path.join(__dirname, 'src', 'chatbot-widget.js');
+    const srcPath = path.join(__dirname,'src', 'chatbot-widget.js');
     const distPath = path.join(__dirname, 'dist', 'chatbot-widget.js');
     const minDistPath = path.join(__dirname, 'dist', 'chatbot-widget.min.js');
     
@@ -65,4 +52,26 @@ if (require.main === module) {
     build();
 }
 
-module.exports = { build, minifyJS };
+module.exports = { build };
+```
+
+## File: utils.js
+
+```
+// Simple minification function (removes comments and excess whitespace)
+function minifyJS(code) {
+    return code
+        // Remove single-line comments
+       .replace(/\/\/.*$/gm, '')
+        // Remove multi-line comments
+       .replace(/\/\*[\s\S]*?\*\//g, '')
+        // Remove excess whitespace
+       .replace(/\s+/g, ' ')
+        // Remove spaces around operators and brackets
+        .replace(/\s*([{}();,:])\s*/g, '$1')
+        // Remove leading/trailing whitespace
+        .trim();
+}
+
+module.exports = { minifyJS };
+```
