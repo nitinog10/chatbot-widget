@@ -15,7 +15,7 @@
 
     // CSS Styles
     const CSS_STYLES = `
-       .chatbot-widget {
+      .chatbot-widget {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             position: fixed;
             z-index: 10000;
@@ -89,7 +89,7 @@
             gap: 12px;
         }
 
-       .chatbot-messages::-webkit-scrollbar {
+      .chatbot-messages::-webkit-scrollbar {
             width: 6px;
         }
 
@@ -103,7 +103,7 @@
             border-radius: 3px;
         }
 
-       .chatbot-message {
+      .chatbot-message {
             max-width: 80%;
             padding: 10px 14px;
             border-radius: 18px;
@@ -119,14 +119,14 @@
             border-bottom-right-radius: 4px;
         }
 
-       .chatbot-message.bot {
+      .chatbot-message.bot {
             align-self: flex-start;
             background: #f1f3f4;
             color: #333;
             border-bottom-left-radius: 4px;
         }
 
-       .chatbot-input-area {
+      .chatbot-input-area {
             padding: 16px;
             border-top: 1px solid #e0e0e0;
             display: flex;
@@ -134,7 +134,7 @@
             align-items: flex-end;
         }
 
-       .chatbot-input {
+      .chatbot-input {
             flex: 1;
             border: 1px solid #e0e0e0;
             border-radius: 20px;
@@ -207,7 +207,7 @@
                 bottom: 10px;
             }
             
-           .chatbot-window {
+          .chatbot-window {
                 width: calc(100vw - 20px);
                 right: -10px;
                 bottom: 80px;
