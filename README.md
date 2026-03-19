@@ -377,3 +377,9 @@ Inline CSS styles for the chatbot widget. Includes styles for the widget button,
 Files changed:
 - `build.js`
 - `src/chatbot-widget.js`
+
+## Code Improvements Applied
+
+- Add regression tests for high-risk files: `build.js`, `src/chatbot-widget.js`.
+- Extract shared utility code into a dedicated module to reduce coupling.
+- Re-index and regenerate documentation after structural changes.
